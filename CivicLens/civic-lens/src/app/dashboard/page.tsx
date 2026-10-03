@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import type { DemoProject } from "@/lib/demo-projects";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 // Sample data for charts
@@ -23,7 +24,7 @@ const departmentData = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8'];
 
 export default function DashboardPage() {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Omit<DemoProject, "description">[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
