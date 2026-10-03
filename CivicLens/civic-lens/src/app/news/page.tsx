@@ -3,8 +3,18 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+type NewsArticle = {
+  id: number;
+  title: string;
+  description: string;
+  source: string;
+  publishedAt: string;
+  url: string;
+  imageUrl: string;
+};
+
 export default function NewsPage() {
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
