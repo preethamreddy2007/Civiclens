@@ -1,11 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+
+type SearchResult = {
+  id: number;
+  title: string;
+  type: string;
+  department: string;
+  description: string;
+  budget: number | null;
+  status: string;
+};
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -142,7 +152,7 @@ export default function SearchPage() {
             </div>
           ) : results.length === 0 ? (
             <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow">
-              <p className="text-gray-500 dark:text-gray-300">No results found for "{query}"</p>
+              <p className="text-gray-500 dark:text-gray-300">No results found for &quot;{query}&quot;</p>
             </div>
           ) : (
             <div>
