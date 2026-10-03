@@ -36,7 +36,7 @@ export default function SignupPage() {
       
       // For demo purposes, we'll just redirect to dashboard
       router.push("/dashboard");
-    } catch (err) {
+    } catch {
       setError("Failed to create account. Please try again.");
     } finally {
       setLoading(false);
