@@ -10,6 +10,6 @@ npm run typecheck
 npm run lint
 ```
 
-The build exports static assets to `out/`. Set `NEXT_PUBLIC_BASE_PATH=/Civiclens` when building for the current GitHub Pages repository path. The Pages workflow supplies this automatically.
+The project uses the standard Next.js build configuration and has an existing [Vercel deployment](https://workspace-sandy-beta.vercel.app/). No GitHub Pages deployment is configured.
 
 The current app uses sample data, simulated authentication, and scripted assistant responses.
