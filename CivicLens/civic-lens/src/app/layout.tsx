@@ -1,18 +1,10 @@
-"use client";
-
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import { useState, useEffect } from "react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const metadata: Metadata = {
+  title: "CivicLens | Infrastructure Intelligence",
+  description: "Explore public infrastructure projects, budgets, and progress. A collaborative CivicLens prototype.",
+};
 
 export default function RootLayout({
   children,
@@ -22,9 +14,12 @@ export default function RootLayout({
   return (
     <html 
       lang="en" 
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <body className="min-h-full flex flex-col">
+        <div className="bg-blue-950 text-blue-100 text-center px-4 py-2 text-sm">
+          CivicLens group project · Demo data · Sign-in and AI responses are simulated
+        </div>
         {children}
       </body>
     </html>
