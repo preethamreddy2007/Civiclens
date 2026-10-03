@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { demoProjects, type DemoProject } from "@/lib/demo-projects";
 
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<DemoProject[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
@@ -14,53 +15,7 @@ export default function ProjectsPage() {
     const fetchProjects = async () => {
       await new Promise(resolve => setTimeout(resolve, 500));
       // In a real app, this would be an API call to backend
-      setProjects([
-        {
-          id: 1,
-          name: "Highway Expansion Project",
-          description: "Expansion of Highway 101 to accommodate increased traffic flow.",
-          status: "In Progress",
-          budget: 50000000,
-          department: "Transportation Department",
-          progress: 65,
-        },
-        {
-          id: 2,
-          name: "City Water Treatment Plant",
-          description: "Modernization of the city's water treatment facility.",
-          status: "Planning",
-          budget: 75000000,
-          department: "Public Works Department",
-          progress: 20,
-        },
-        {
-          id: 3,
-          name: "Park Renovation Initiative",
-          description: "Complete renovation of central park facilities.",
-          status: "Completed",
-          budget: 15000000,
-          department: "Environment Department",
-          progress: 100,
-        },
-        {
-          id: 4,
-          name: "Public Library Upgrade",
-          description: "Modernization of the city's main public library.",
-          status: "In Progress",
-          budget: 8500000,
-          department: "Education Department",
-          progress: 40,
-        },
-        {
-          id: 5,
-          name: "City Hall Security System",
-          description: "Installation of advanced security systems in city hall.",
-          status: "Planning",
-          budget: 3200000,
-          department: "Public Safety Department",
-          progress: 10,
-        },
-      ]);
+      setProjects(demoProjects);
       setLoading(false);
     };
 
@@ -68,7 +23,7 @@ export default function ProjectsPage() {
   }, []);
 
   const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    const matchesSearch = project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           project.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = filterStatus === "All" || project.status === filterStatus;
     return matchesSearch && matchesFilter;
@@ -117,7 +72,7 @@ export default function ProjectsPage() {
               </select>
             </div>
             <div className="flex items-end">
-              <button 
+              <button
                 onClick={() => {
                   setSearchTerm("");
                   setFilterStatus("All");
@@ -146,10 +101,10 @@ export default function ProjectsPage() {
                 <div className="p-6">
                   <div className="flex justify-between items-start">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{project.name}</h3>
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                      ${project.status === 'Completed' ? 'bg-green-100 text-green-800 dark:bg-green-800/30 dark:text-green-300' : 
-                        project.status === 'In Progress' ? 'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-300' : 
-                        project.status === 'Planning' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800/30 dark:text-yellow-300' : 
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                      ${project.status === 'Completed' ? 'bg-green-100 text-green-800 dark:bg-green-800/30 dark:text-green-300' :
+                        project.status === 'In Progress' ? 'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-300' :
+                        project.status === 'Planning' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800/30 dark:text-yellow-300' :
                         'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'}`}>
                       {project.status}
                     </span>
@@ -165,17 +120,17 @@ export default function ProjectsPage() {
                       <span className="font-medium text-gray-900 dark:text-white">{project.progress}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                      <div 
+                      <div
                         className={`h-2.5 rounded-full ${
-                          project.progress === 100 ? 'bg-green-600' : 
-                          project.progress >= 70 ? 'bg-blue-600' : 
+                          project.progress === 100 ? 'bg-green-600' :
+                          project.progress >= 70 ? 'bg-blue-600' :
                           project.progress >= 30 ? 'bg-yellow-500' : 'bg-red-600'
-                        }`} 
+                        }`}
                         style={{ width: `${project.progress}%` }}
                       ></div>
                     </div>
                   </div>
-                  <Link 
+                  <Link
                     href={`/projects/${project.id}`}
                     className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-800/30"
                   >
