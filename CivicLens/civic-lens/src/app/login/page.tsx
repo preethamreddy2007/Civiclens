@@ -28,7 +28,7 @@ export default function LoginPage() {
       
       // For demo purposes, we'll just redirect to dashboard
       router.push("/dashboard");
-    } catch (err) {
+    } catch {
       setError("Failed to log in. Please check your credentials.");
     } finally {
       setLoading(false);
