@@ -15,9 +15,10 @@
 </p>
 
 <p align="center">
+  <a href="https://workspace-sandy-beta.vercel.app/">Live website</a> ·
   <a href="#explore-civiclens">Explore</a> ·
   <a href="#run-locally">Run locally</a> ·
-  <a href="#github-pages">Deployment</a> ·
+  <a href="#live-website">Deployment</a> ·
   <a href="#team">Team</a>
 </p>
 
@@ -51,7 +52,7 @@ npm run dev
 Open <http://localhost:3000>. For this downloaded workspace, the app folder is simply `civic-lens`.
 
 ```bash
-npm run build       # Export the static frontend to out/
+npm run build       # Build the Next.js frontend
 npm run typecheck   # Check TypeScript
 npm run lint        # Run ESLint
 ```
@@ -70,7 +71,6 @@ API documentation: <http://localhost:8000/docs>.
 ## Project structure
 
 ```text
-.github/workflows/pages.yml  GitHub Pages deployment
 docs/assets/                Repository artwork
 CivicLens/
   civic-lens/               Next.js frontend
@@ -80,13 +80,11 @@ CivicLens/
   backend/                  FastAPI sample API
 ```
 
-## GitHub Pages
+## Live website
 
-The workflow builds the frontend and deploys `out/` on pushes to `main`, or when run manually. In repository **Settings → Pages → Build and deployment**, select **GitHub Actions**.
+[Open CivicLens on Vercel →](https://workspace-sandy-beta.vercel.app/)
 
-Expected address after a successful deployment: <https://preethamreddy2007.github.io/Civiclens/>. This address is not a confirmation that the site is live.
-
-The build uses the repository name as its base path, exports all five sample project routes, and uses directory-style URLs for direct page visits. GitHub Pages serves the static frontend; the Python backend needs separate hosting if integrated later.
+The project already has a Vercel deployment. This repository uses the standard Next.js build configuration and does not deploy to GitHub Pages.
 
 ## Next steps
 
