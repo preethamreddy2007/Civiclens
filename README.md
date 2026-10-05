@@ -102,7 +102,7 @@ CivicLens is a **group project**, built collaboratively by the team below. Credi
 | **Banreddy Preetham Reddy** | Team member · Repository owner and administrator | [@preethamreddy2007](https://github.com/preethamreddy2007) |
 | **Chaithan Reddy** | Team member | [@ChaithanReddyB21](https://github.com/ChaithanReddyB21) |
 | **Chetan Reddy** | Team member | [@Chetan-404](https://github.com/Chetan-404) |
-| **Aryan Surapaneni** | Team member | [LinkedIn](https://www.linkedin.com/in/aryan-surapaneni-a71103382/) |
+| **Aryan Surapaneni** | Team member | [@aryansurapaneni](https://github.com/aryansurapaneni) |
 | **Anish Layam** | Team member | [@anishlayam22](https://github.com/anishlayam22) |
 
 Thank you to every team member for their collaboration and contributions to CivicLens. Individual code contributions are also recorded in the [repository history](https://github.com/preethamreddy2007/Civiclens/commits/main/).
